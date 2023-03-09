@@ -24,7 +24,7 @@ void	images(t_mlx *mlx)
 {
 	int		x;
 
-	mlx->en.path = ENEMY;
+	mlx->en.path = ENEMY_RED;
 	mlx->e.path = EXIT;
 	mlx->w.path = WALL;
 	mlx->c.path = COIN_LEFT;
@@ -95,7 +95,7 @@ void	create_map(t_mlx *mlx)
 	mlx->map_y = PX * mlx->map_y;
 	mlx->win = mlx_new_window(mlx->mlx, mlx->map_x, \
 		mlx->map_y, "./so_long");
-	mlx_loop_hook(mlx->mlx, &animation, mlx);
 	universal_func (!(mlx->win), "Patuhany bacveluc mi ban traqec\n");
+	mlx_loop_hook(mlx->mlx, &animation, mlx);
 	fill_map(mlx);
 }

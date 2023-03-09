@@ -33,14 +33,16 @@ void	fd_size(char **s, char *file)
 	universal_func(ft_strncmp(ft_strrchr(file, '.'), ".ber", 4), \
 		"Invalid file\n");
 	fd = open(file, O_RDONLY);
+	universal_func (fd < 0, "Invalid file\n");
 	while (read(fd, &a, 1) > 0)
 		sym_count++;
 	close(fd);
+	universal_func(!sym_count, "Invalid or empty file\n");
 	fd = open(file, O_RDONLY);
 	*s = malloc (sym_count + 1);
-	universal_func (read (fd, *s, sym_count) <= 0, "Invalid or empty file\n");
+	universal_func(!(*s), "...Malloc\n");
+	read(fd, *s, sym_count);
 	(*s)[sym_count] = 0;
-	*s = ft_strtrim(*s, "\n");
 }
 
 void	map_symbols_and_uxxankyun(char **split, int j)
@@ -53,7 +55,7 @@ void	map_symbols_and_uxxankyun(char **split, int j)
 	while (split[++i])
 	{
 		j = -1;
-		universal_func(len != ft_strlen(split[i]), "Not uxxankyun map\n");
+		universal_func(len != ft_strlen(split[i]), "Not a uxxankyun map\n");
 		while (split[i][++j])
 			universal_func(split[i][j] != '0' && split[i][j] != '1' \
 				&& split[i][j] != 'C' && split[i][j] != 'E' \
@@ -78,7 +80,6 @@ char	**map_check(char *file, int *c_count)
 	int		i;
 
 	fd_size(&s, file);
-	universal_func(!s, "...\n");
 	split = ft_split(s, '\n');
 	universal_func (!split || !(*split), \
 		"Malloci xndir kam datark file\n");

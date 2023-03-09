@@ -37,7 +37,8 @@
 # define COIN_RIGHT "images/policemanleft.xpm"
 # define COIN_LEFT "images/policemanright.xpm"
 # define COIN_EXTRA "images/parkacpoliceman.xpm"
-# define ENEMY "images/policecar.xpm"
+# define ENEMY_RED "images/policecarred.xpm"
+# define ENEMY_BLUE "images/policecarblue.xpm"
 # define EXIT "images/garage.xpm"
 # define WALL "images/shenq.xpm"
 # define SPACE "images/floor.xpm"
@@ -81,7 +82,6 @@ typedef struct s_count
 	int	p_count;
 	int	e_tox;
 	int	e_syun;
-	int	nl;
 }	t_count;
 
 int		counts(char **split, char **split2);

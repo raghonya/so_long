@@ -16,6 +16,7 @@ void	for_up(t_mlx *mlx)
 {
 	int	x;
 
+	mlx_destroy_image(mlx->mlx, mlx->s.icon);
 	mlx->s.icon = mlx_xpm_file_to_image(mlx->mlx, \
 		COIN_EXTRA, &x, &x);
 	mlx_put_image_to_window (mlx->mlx, mlx->win, \
@@ -28,6 +29,7 @@ void	for_right(t_mlx *mlx)
 {
 	int	x;
 
+	mlx_destroy_image(mlx->mlx, mlx->s.icon);
 	mlx->s.icon = mlx_xpm_file_to_image(mlx->mlx, \
 		COIN_EXTRA, &x, &x);
 	mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.icon, \
@@ -40,6 +42,7 @@ void	for_down(t_mlx *mlx)
 {
 	int	x;
 
+	mlx_destroy_image(mlx->mlx, mlx->s.icon);
 	mlx->s.icon = mlx_xpm_file_to_image(mlx->mlx, \
 		COIN_EXTRA, &x, &x);
 	mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.icon, \
@@ -52,6 +55,7 @@ void	for_left(t_mlx *mlx)
 {
 	int	x;
 
+	mlx_destroy_image(mlx->mlx, mlx->s.icon);
 	mlx->s.icon = mlx_xpm_file_to_image(mlx->mlx, \
 		COIN_EXTRA, &x, &x);
 	mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.icon, \

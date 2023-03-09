@@ -69,6 +69,5 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (start <= end)
 		s[i++] = s1[start++];
 	s[i] = 0;
-	free((void *)s1);
 	return (s);
 }

@@ -19,6 +19,7 @@ void	eli_norm(t_mlx *mlx, char *s)
 	x = 0;
 	if (mlx->map[mlx->i][mlx->j] == 'K')
 		exit(0);
+	mlx_destroy_image(mlx->mlx, mlx->p.icon);
 	mlx->p.icon = mlx_xpm_file_to_image(mlx->mlx, \
 		s, &x, &x);
 	universal_func(!(mlx->p.icon), "Nkari sxal path\n");

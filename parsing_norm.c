@@ -102,7 +102,6 @@ int	counts(char **split, char **split2)
 		"Malloci xndir\n");
 	len = ft_strlen(split[0]);
 	i = -1;
-	a.nl = 0;
 	a.p_count = 0;
 	a.c_count = 0;
 	a.e_count = 0;
