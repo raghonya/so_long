@@ -39,7 +39,10 @@ void	to_up(t_mlx *mlx, int *count)
 		eli_norm (mlx, PLAYER_UP);
 		mlx->px_y -= PX;
 		if (mlx->map[mlx->i][mlx->j] == 'E' && mlx->count == 0)
-			exit(0);
+		{
+			mlx_destroy_window(mlx->mlx, mlx->win);
+			run_map(mlx);
+		}
 		mlx_put_image_to_window (mlx->mlx, mlx->win, \
 			mlx->p.icon, mlx->px_x, mlx->px_y);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, \
@@ -65,7 +68,10 @@ void	to_right(t_mlx *mlx, int *count)
 		eli_norm (mlx, P_RIGHT);
 		mlx->px_x += PX;
 		if (mlx->map[mlx->i][mlx->j] == 'E' && mlx->count == 0)
-			exit(0);
+		{
+			mlx_destroy_window(mlx->mlx, mlx->win);
+			run_map(mlx);
+		}
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.icon, \
 			mlx->px_x, mlx->px_y);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.icon, \
@@ -91,7 +97,10 @@ void	to_down(t_mlx *mlx, int *count)
 		eli_norm (mlx, P_DOWN);
 		mlx->px_y += PX;
 		if (mlx->map[mlx->i][mlx->j] == 'E' && mlx->count == 0)
-			exit(0);
+		{
+			mlx_destroy_window(mlx->mlx, mlx->win);
+			run_map(mlx);
+		}
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.icon, \
 			mlx->px_x, mlx->px_y);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.icon, \
@@ -117,7 +126,10 @@ void	to_left(t_mlx *mlx, int *count)
 		eli_norm (mlx, P_LEFT);
 		mlx->px_x -= PX;
 		if (mlx->map[mlx->i][mlx->j] == 'E' && mlx->count == 0)
-			exit(0);
+		{
+			mlx_destroy_window(mlx->mlx, mlx->win);
+			run_map(mlx);
+		}
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.icon, \
 			mlx->px_x, mlx->px_y);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.icon, \

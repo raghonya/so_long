@@ -27,10 +27,8 @@ void	anim_norm(t_mlx *mlx, char a, char *s)
 		j = -1;
 		while (mlx->map[i][++j])
 			if (mlx->map[i][j] == a)
-			{
 				mlx_put_image_to_window(mlx->mlx, mlx->win, \
 					mlx->c.icon, j * PX, i * PX);
-			}
 	}
 }
 
@@ -41,6 +39,8 @@ int	animation(t_mlx *mlx)
 	static int	k;
 	static int	heriqa;
 
+	if (mlx->flag == 0)
+		return (0);
 	if (i % 10000 == 0)
 		anim_norm(mlx, 'C', COIN_LEFT);
 	if (j % 20000 == 0)

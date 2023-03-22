@@ -65,7 +65,9 @@ typedef struct s_mlx
 	t_img	en;
 	void	*mlx;
 	void	*win;
+	char	*map_path;
 	char	**map;
+	char	**args;
 	int		map_x;
 	int		map_y;
 	int		px_x;
@@ -73,6 +75,7 @@ typedef struct s_mlx
 	int		i;
 	int		j;
 	int		count;
+	int		flag;
 }	t_mlx;
 
 typedef struct s_count
@@ -97,5 +100,6 @@ void	to_right(t_mlx *mlx, int *count);
 void	to_down(t_mlx *mlx, int *count);
 void	to_left(t_mlx *mlx, int *count);
 int		animation(t_mlx *mlx);
+void	run_map(t_mlx *mlx);
 
 #endif

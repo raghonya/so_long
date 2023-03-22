@@ -6,13 +6,13 @@
 #    By: raghonya <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/04 14:24:11 by raghonya          #+#    #+#              #
-#    Updated: 2023/03/04 14:24:12 by raghonya         ###   ########.fr        #
+#    Updated: 2023/03/19 17:40:12 by raghonya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	so_long
 
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	#-Wall -Wextra -Werror
 
 LIB		=	libft/libft.a
 
