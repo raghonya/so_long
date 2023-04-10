@@ -30,7 +30,7 @@ void	fd_size(char **s, char *file)
 
 	i = 0;
 	sym_count = 0;
-	universal_func(ft_strncmp(ft_strrchr(file, '.'), ".ber", 4), \
+	universal_func(ft_strcmp(ft_strrchr(file, '.'), ".ber"), \
 		"Invalid file\n");
 	fd = open(file, O_RDONLY);
 	universal_func (fd < 0, "Invalid file\n");

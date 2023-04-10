@@ -18,14 +18,14 @@ LIB		=	libft/libft.a
 
 PLIB	=	printf/libftprintf.a
 
-MLX		=	minilibx-linux
+#MLX		=	minilibx-linux
 
-LFLAGS	=	-I./minilibx-linux -lmlx -lXext -lX11
+#LFLAGS	=	-I./minilibx-linux -lmlx -lXext -lX11
 
-ifeq ($(shell uname -s), Darwin)
-	MLX = minilibx
-	LFLAGS = -I./minilibx -lm -lmlx -framework OpenGL -framework AppKit
-endif
+#ifeq ($(shell uname -s), Darwin)
+#	MLX = minilibx
+#	#LFLAGS = -I./minilibx -lm -lmlx -framework OpenGL -framework AppKit
+#endif
 
 FILES	=	so_long.c \
 			parsing.c \
@@ -48,8 +48,8 @@ run_lib:
 run_printf:
 	@make -C printf
 
-run_MLX:
-	@make -C $(MLX)
+#run_MLX:
+#	@make -C $(MLX)
 
 clean:
 	@rm -f *.o
