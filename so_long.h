@@ -42,6 +42,7 @@
 # define EXIT "images/garage.xpm"
 # define WALL "images/shenq.xpm"
 # define SPACE "images/floor.xpm"
+
 # include <math.h>
 # include <mlx.h>
 # include <stdio.h>

@@ -41,8 +41,12 @@ int	close_map(int key, t_mlx *mlx)
 		to_left(mlx, &count);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->w.icon, 0, 0);
 	s = ft_itoa(count);
-	mlx_string_put(mlx->mlx, mlx->win, 0, 10, 0x00FF0000, s);
+	mlx_string_put(mlx->mlx, mlx->win, 1, 10, 0x00FF0000, s);
 	free(s);
+	int j = -1;
+	while (mlx->map[++j])
+		printf ("%s\n", mlx->map[j]);
+	printf ("\n");
 	return (0);
 }
 
@@ -79,7 +83,7 @@ void	run_map(t_mlx *mlx)
 	}
 	mlx->map = map_check(mlx->args[a], &(mlx->count));
 	create_map(mlx);
-	mlx_string_put(mlx->mlx, mlx->win, 0, 10, 0x00FF0000, "0");
+	mlx_string_put(mlx->mlx, mlx->win, 1, 10, 0x00FF0000, "0");
 	mlx_hook(mlx->win, 2, 0, &close_map, mlx);
 	mlx_hook(mlx->win, 17, 0, &close_window, mlx);
 	mlx_loop(mlx->mlx);
