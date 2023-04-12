@@ -43,10 +43,6 @@ int	close_map(int key, t_mlx *mlx)
 	s = ft_itoa(count);
 	mlx_string_put(mlx->mlx, mlx->win, 1, 10, 0x00FF0000, s);
 	free(s);
-	int j = -1;
-	while (mlx->map[++j])
-		printf ("%s\n", mlx->map[j]);
-	printf ("\n");
 	return (0);
 }
 

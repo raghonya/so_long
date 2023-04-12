@@ -16,7 +16,7 @@ void	universal_func(int a, char *s)
 {
 	if (a)
 	{
-		ft_printf ("Error\n%s", s);
+		ft_printf ("Error: %s", s);
 		exit(1);
 	}
 }
@@ -29,7 +29,6 @@ void	fd_size(char **s, char *file)
 	char	a;
 
 	sym_count = 0;
-	i = ft_strlen(file);
 	universal_func(ft_strcmp(ft_strrchr(file, '.'), ".ber"), \
 		"Invalid file\n");
 	i = 0;

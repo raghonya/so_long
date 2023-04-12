@@ -38,7 +38,7 @@ int	rec_for_c(char **split, int ln, int cl, int *Count)
 	if (*Count == 0)
 		return (77);
 	if (rec_for_c(split, ln - 1, cl, Count) > 0)
-		return (EXIT_FAILURE);
+		return (777);
 	if (rec_for_c(split, ln, cl - 1, Count) > 0)
 		return (777);
 	if (rec_for_c(split, ln + 1, cl, Count) > 0)
