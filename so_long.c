@@ -68,7 +68,7 @@ void	run_map(t_mlx *mlx)
 		mlx->win = mlx_new_window(mlx->mlx, 200, \
 		200, "WINNER!!!!!!!!!!!!!!!!!");
 		mlx_string_put(mlx->mlx, mlx->win, 50, \
-			100, 0x00FF00, "YOU WOOOOOOON🥳🥳🥳!!!");
+			100, 0x00FF00, "YOU WIIIIIIIN🥳🥳🥳!!!");
 		mlx_string_put(mlx->mlx, mlx->win, 50, \
 			110, 0xFFFFFF, "Press any key to");
 		mlx_string_put(mlx->mlx, mlx->win, 50, \
