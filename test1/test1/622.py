@@ -1,0 +1,12 @@
+X = 21/(-3)
+print(X)
+X = -36/6
+print(X)
+X = 0/(-10)
+print(X)
+X = -80-1/(-9)
+print(X)
+X = 45-3/(-21)
+print(X)
+X = 20-2/(-3)
+print(X)
