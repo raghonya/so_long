@@ -52,7 +52,6 @@ void	to_up(t_mlx *mlx, int *count)
 		if (mlx->map[mlx->i + 1][mlx->j] == 'E')
 			mlx_put_image_to_window (mlx->mlx, mlx->win, \
 				mlx->e.icon, mlx->px_x, mlx->px_y + PX);
-		ft_printf ("%d\n", *count);
 	}
 }
 
@@ -81,7 +80,6 @@ void	to_right(t_mlx *mlx, int *count)
 		if (mlx->map[mlx->i][mlx->j - 1] == 'E')
 			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->e.icon, \
 				mlx->px_x - PX, mlx->px_y);
-		ft_printf ("%d\n", *count);
 	}
 }
 
@@ -110,7 +108,6 @@ void	to_down(t_mlx *mlx, int *count)
 		if (mlx->map[mlx->i - 1][mlx->j] == 'E')
 			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->e.icon, \
 				mlx->px_x, mlx->px_y - PX);
-		ft_printf ("%d\n", *count);
 	}
 }
 
@@ -139,6 +136,5 @@ void	to_left(t_mlx *mlx, int *count)
 		if (mlx->map[mlx->i][mlx->j + 1] == 'E')
 			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->e.icon, \
 				mlx->px_x + PX, mlx->px_y);
-		ft_printf ("%d\n", *count);
 	}
 }
