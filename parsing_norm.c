@@ -26,45 +26,31 @@ void	free_matrix(char **split, char **split2)
 	free(split2);
 }
 
-int	rec_for_c(char **split, int ln, int cl, int *Count)
+void	find_valid_path(char **map, int len, int ln, int cl)
 {
-	if (ln < 1 || cl < 1 || split[ln + 1] == NULL \
-		|| (size_t)cl == ft_strlen(split[0]) - 1 \
-		|| split[ln][cl] == '1' || split[ln][cl] == 'K')
-		return (0);
-	else if (split[ln][cl] == 'C')
-		*Count -= 1;
-	split[ln][cl] = '1';
-	if (*Count == 0)
-		return (77);
-	if (rec_for_c(split, ln - 1, cl, Count) > 0)
-		return (777);
-	if (rec_for_c(split, ln, cl - 1, Count) > 0)
-		return (777);
-	if (rec_for_c(split, ln + 1, cl, Count) > 0)
-		return (777);
-	if (rec_for_c(split, ln, cl + 1, Count) > 0)
-		return (777);
-	return (-1);
+	if (ln < 1 || cl < 1 || map[ln + 1] == NULL || cl == len - 1 \
+		|| map[ln][cl] == '1' || map[ln][cl] == 'K')
+		return ;
+	map[ln][cl] = '1';
+	find_valid_path(map, len, ln - 1, cl);
+	find_valid_path(map, len, ln, cl + 1);
+	find_valid_path(map, len, ln + 1, cl);
+	find_valid_path(map, len, ln, cl - 1);
 }
 
-int	rec_for_e(char **split, size_t len, int ln, int cl)
+void	check_valid_path(char **map, int len, t_count a)
 {
-	if (ln < 1 || cl < 1 || split[ln + 1] == NULL || (size_t)cl == len - 1 \
-		|| split[ln][cl] == '1' || split[ln][cl] == 'K')
-		return (0);
-	else if (split[ln][cl] == 'P')
-		return (100);
-	split[ln][cl] = '1';
-	if (rec_for_e(split, len, ln - 1, cl) > 0)
-		return (777);
-	if (rec_for_e(split, len, ln, cl - 1) > 0)
-		return (777);
-	if (rec_for_e(split, len, ln + 1, cl) > 0)
-		return (777);
-	if (rec_for_e(split, len, ln, cl + 1) > 0)
-		return (777);
-	return (-1);
+	int	i;
+	int	j;
+
+	find_valid_path(map, len, a.e_tox, a.e_syun);
+	i = -1;
+	while (map[++i])
+	{
+		j = -1;
+		while (map[i][++j])
+			universal_func (map[i][j] != '1', "Valid path chka\n");
+	}
 }
 
 int	counts_norm(char **s, t_count *a, int *i)
@@ -109,9 +95,7 @@ int	counts(char **split, char **split2)
 	c = a.c_count;
 	universal_func((a.e_count != 1 || a.p_count != 1 || a.c_count == 0), \
 		"Symbolneri qanaki xndir\n");
-	universal_func((rec_for_e(split, len, a.e_tox, a.e_syun) != 777 \
-		|| rec_for_c(split2, a.e_tox, a.e_syun, &a.c_count) != 777), \
-		"Valid path chka\n");
+	check_valid_path(split2, len, a);
 	free_matrix(split, split2);
 	return (c);
 }

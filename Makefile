@@ -12,7 +12,7 @@
 
 NAME	=	so_long
 
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -g
 
 LIB		=	libft/libft.a
 
@@ -21,6 +21,8 @@ PLIB	=	printf/libftprintf.a
 MLX		=	minilibx-linux
 
 LFLAGS	=	-I./minilibx-linux -lmlx -lXext -lX11
+
+OBJDIR	=	obj
 
 ifeq ($(shell uname -s), Darwin)
 	MLX = minilibx
@@ -35,12 +37,18 @@ FILES	=	so_long.c \
 			put_images.c \
 			animation.c
 
-OBJ		=	$(FILES:.c=.o)
+OBJ		=	$(FILES:%.c=$(OBJDIR)/%.o)
 
-all: run_MLX run_lib run_printf $(NAME)
+all: $(OBJDIR) run_lib run_printf $(NAME)
+
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+
+$(OBJDIR)/%.o: %.c Makefile so_long.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) $(FILES) -o $(NAME) -L./$(MLX) $(LFLAGS) $(PLIB) $(LIB)
+	$(CC) $(CFLAGS) $(OBJ) -L./$(MLX) $(LFLAGS) -o $(NAME) $(PLIB) $(LIB)
 
 run_lib:
 	@make -C libft
