@@ -50,6 +50,30 @@
 # include "libft/get_next_line.h"
 # include "printf/ft_printf.h"
 
+# define MAIN int main (int argc, char **argv)
+
+# ifdef __linux__
+#  define ESC 65307
+#  define UP 65362
+#  define RIGHT 65363
+#  define DOWN 65364
+#  define LEFT 65361
+#  define UP2 119
+#  define RIGHT2 100
+#  define DOWN2 115
+#  define LEFT2 97
+# else
+#  define ESC 53
+#  define UP 13
+#  define RIGHT 2
+#  define DOWN 1
+#  define LEFT 0
+#  define UP2 126
+#  define RIGHT2 124
+#  define DOWN2 125
+#  define LEFT2 123
+# endif
+
 typedef struct s_img
 {
 	char	*path;

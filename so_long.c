@@ -25,19 +25,19 @@ int	close_map(int key, t_mlx *mlx)
 
 	if (mlx->flag == 0)
 		exit(0);
-	if (key == 53)
+	if (key == ESC)
 	{
 		mlx_clear_window(mlx->mlx, mlx->win);
 		mlx_destroy_window(mlx->mlx, mlx->win);
 		exit(0);
 	}
-	else if (key == 13 || key == 126)
+	else if (key == UP || key == UP2)
 		to_up(mlx, &count);
-	else if (key == 2 || key == 124)
+	else if (key == RIGHT || key == RIGHT2)
 		to_right(mlx, &count);
-	else if (key == 1 || key == 125)
+	else if (key == DOWN || key == DOWN2)
 		to_down(mlx, &count);
-	else if (key == 0 || key == 123)
+	else if (key == LEFT || key == LEFT2)
 		to_left(mlx, &count);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->w.icon, 0, 0);
 	s = ft_itoa(count);
@@ -85,7 +85,7 @@ void	run_map(t_mlx *mlx)
 	mlx_loop(mlx->mlx);
 }
 
-int	main(int argc, char **argv)
+MAIN
 {
 	t_mlx		mlx;
 	int			i;
@@ -100,7 +100,7 @@ int	main(int argc, char **argv)
 		j = i - 1;
 		while (--j > -1)
 			universal_func (!ft_strncmp(mlx.args[i - 1], mlx.args[j], \
-				ft_strlen(mlx.args[j])), "Nuyn mapy 1 angamic avel mi tveq");
+				ft_strlen(mlx.args[j])), "Nuyn mapy 1 angamic avel mi tveq\n");
 	}
 	mlx.args[i - 1] = NULL;
 	mlx.flag = 1;

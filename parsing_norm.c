@@ -48,8 +48,10 @@ void	check_valid_path(char **map, int len, t_count a)
 	while (map[++i])
 	{
 		j = -1;
+		printf ("%s\n", map[i]);
 		while (map[i][++j])
-			universal_func (map[i][j] != '1', "Valid path chka\n");
+			universal_func (map[i][j] != '1' && map[i][j] != 'K', \
+			"Valid path chka\n");
 	}
 }
 
