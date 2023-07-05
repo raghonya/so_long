@@ -41,18 +41,12 @@ void	find_valid_path(char **map, int len, int ln, int cl)
 void	check_valid_path(char **map, int len, t_count a)
 {
 	int	i;
-	int	j;
 
 	find_valid_path(map, len, a.e_tox, a.e_syun);
 	i = -1;
 	while (map[++i])
-	{
-		j = -1;
-		printf ("%s\n", map[i]);
-		while (map[i][++j])
-			universal_func (map[i][j] != '1' && map[i][j] != 'K', \
-			"Valid path chka\n");
-	}
+		universal_func (ft_strchr(map[i], 'P') || \
+		ft_strchr(map[i], 'C'), "Valid path chka\n");
 }
 
 int	counts_norm(char **s, t_count *a, int *i)
