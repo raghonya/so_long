@@ -18,6 +18,16 @@ int	close_window(t_mlx *mlx)
 	exit(0);
 }
 
+void	destroy(t_mlx *mlx)
+{
+	mlx_destroy_image(mlx->mlx, mlx->p.icon);
+	mlx_destroy_image(mlx->mlx, mlx->e.icon);
+	mlx_destroy_image(mlx->mlx, mlx->c.icon);
+	mlx_destroy_image(mlx->mlx, mlx->s.icon);
+	mlx_destroy_image(mlx->mlx, mlx->w.icon);
+	mlx_destroy_image(mlx->mlx, mlx->en.icon);
+}
+
 int	close_map(int key, t_mlx *mlx)
 {
 	static int	count;
@@ -41,19 +51,9 @@ int	close_map(int key, t_mlx *mlx)
 		to_left(mlx, &count);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->w.icon, 0, 0);
 	s = ft_itoa(count);
-	mlx_string_put(mlx->mlx, mlx->win, 1, 10, 0x00FF0000, s);
+	mlx_string_put(mlx->mlx, mlx->win, 10, 25, 0xFFFF00, s);
 	free(s);
 	return (0);
-}
-
-void	destroy(t_mlx *mlx)
-{
-	mlx_destroy_image(mlx->mlx, mlx->p.icon);
-	mlx_destroy_image(mlx->mlx, mlx->e.icon);
-	mlx_destroy_image(mlx->mlx, mlx->c.icon);
-	mlx_destroy_image(mlx->mlx, mlx->s.icon);
-	mlx_destroy_image(mlx->mlx, mlx->w.icon);
-	mlx_destroy_image(mlx->mlx, mlx->en.icon);
 }
 
 void	run_map(t_mlx *mlx)
@@ -65,21 +65,22 @@ void	run_map(t_mlx *mlx)
 	{
 		destroy(mlx);
 		mlx->flag = 0;
-		mlx->win = mlx_new_window(mlx->mlx, 200, \
-		200, "WINNER!!!!!!!!!!!!!!!!!");
-		mlx_string_put(mlx->mlx, mlx->win, 50, \
-			100, 0x00FF00, "YOU WIIIIIIIN🥳🥳🥳!!!");
-		mlx_string_put(mlx->mlx, mlx->win, 50, \
-			110, 0xFFFFFF, "Press any key to");
-		mlx_string_put(mlx->mlx, mlx->win, 50, \
-			120, 0xFFFFFF, "close the window");
-		mlx_hook(mlx->win, 2, 0, &close_map, mlx);
-		mlx_hook(mlx->win, 17, 0, &close_window, mlx);
-		mlx_loop(mlx->mlx);
+		// mlx->win = mlx_new_window(mlx->mlx, 200, \
+		// 200, "WINNER!!!!!!!!!!!!!!!!!");
+		// mlx_string_put(mlx->mlx, mlx->win, 50, \
+		// 	100, 0x00FF00, "YOU WIIIIIIIN🥳🥳🥳!!!");
+		// mlx_string_put(mlx->mlx, mlx->win, 50, \
+		// 	110, 0xFFFFFF, "Press any key to");
+		// mlx_string_put(mlx->mlx, mlx->win, 50, \
+		// 	120, 0xFFFFFF, "close the window");
+		// mlx_hook(mlx->win, 2, 0, &close_map, mlx);
+		// mlx_hook(mlx->win, 17, 0, &close_window, mlx);
+		exit (0);
+		// mlx_loop(mlx->mlx);
 	}
 	mlx->map = map_check(mlx->args[a], &(mlx->count));
 	create_map(mlx);
-	mlx_string_put(mlx->mlx, mlx->win, 1, 10, 0x00FF0000, "0");
+	mlx_string_put(mlx->mlx, mlx->win, 10, 25, 0xFFFF00, "0");
 	mlx_hook(mlx->win, 2, 0, &close_map, mlx);
 	mlx_hook(mlx->win, 17, 0, &close_window, mlx);
 	mlx_loop(mlx->mlx);
