@@ -81,8 +81,8 @@ void	run_map(t_mlx *mlx)
 	mlx->map = map_check(mlx->args[a], &(mlx->count));
 	create_map(mlx);
 	mlx_string_put(mlx->mlx, mlx->win, 10, 25, 0xFFFF00, "0");
-	mlx_hook(mlx->win, 2, 0, &close_map, mlx);
-	mlx_hook(mlx->win, 17, 0, &close_window, mlx);
+	mlx_hook(mlx->win, 2, 1L << 0, &close_map, mlx);
+	mlx_hook(mlx->win, 17, 1L << 15, &close_window, mlx);
 	mlx_loop(mlx->mlx);
 }
 
