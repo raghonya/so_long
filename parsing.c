@@ -24,14 +24,12 @@ void	universal_func(int a, char *s)
 void	fd_size(char **s, char *file)
 {
 	int		fd;
-	int		i;
 	int		sym_count;
 	char	a;
 
 	sym_count = 0;
 	universal_func(ft_strcmp(ft_strrchr(file, '.'), ".ber"), \
 		"Invalid file\n");
-	i = 0;
 	fd = open(file, O_RDONLY);
 	universal_func (fd < 0, "Invalid file\n");
 	while (read(fd, &a, 1) > 0)
