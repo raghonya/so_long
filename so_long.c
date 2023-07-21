@@ -65,6 +65,7 @@ void	run_map(t_mlx *mlx)
 	{
 		destroy(mlx);
 		mlx->flag = 0;
+		exit (0);
 		// mlx->win = mlx_new_window(mlx->mlx, 200, \
 		// 200, "WINNER!!!!!!!!!!!!!!!!!");
 		// mlx_string_put(mlx->mlx, mlx->win, 50, \
