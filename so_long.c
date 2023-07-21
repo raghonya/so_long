@@ -66,7 +66,7 @@ void	run_map(t_mlx *mlx)
 		destroy(mlx);
 		mlx->flag = 0;
 		exit (0);
-		// mlx->win = mlx_new_window(mlx->mlx, 200, \
+		/*// mlx->win = mlx_new_window(mlx->mlx, 200, \
 		// 200, "WINNER!!!!!!!!!!!!!!!!!");
 		// mlx_string_put(mlx->mlx, mlx->win, 50, \
 		// 	100, 0x00FF00, "YOU WIIIIIIIN🥳🥳🥳!!!");
@@ -77,7 +77,7 @@ void	run_map(t_mlx *mlx)
 		// mlx_hook(mlx->win, 2, 0, &close_map, mlx);
 		// mlx_hook(mlx->win, 17, 0, &close_window, mlx);
 		exit (0);
-		// mlx_loop(mlx->mlx);
+		// mlx_loop(mlx->mlx);*/
 	}
 	mlx->map = map_check(mlx->args[a], &(mlx->count));
 	create_map(mlx);
