@@ -29,7 +29,7 @@ ifeq ($(shell uname -s), Darwin)
 	LFLAGS = -L $(MLX) -lm -lmlx -framework OpenGL -framework AppKit
 endif
 
-IFLAGS	=	-I $(MLX) -I
+IFLAGS	=	-I $(MLX) -I./
 
 FILES	=	so_long.c \
 			parsing.c \
