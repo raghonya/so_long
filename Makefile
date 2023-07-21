@@ -20,14 +20,16 @@ PLIB	=	printf/libftprintf.a
 
 MLX		=	minilibx-linux
 
-LFLAGS	=	-I./minilibx-linux -lmlx -lXext -lX11
+LFLAGS	=	-L $(MLX) -lmlx -lXext -lX11
 
 OBJDIR	=	obj
 
 ifeq ($(shell uname -s), Darwin)
 	MLX = minilibx
-	LFLAGS = -I./minilibx -lm -lmlx -framework OpenGL -framework AppKit
+	LFLAGS = -L $(MLX) -lm -lmlx -framework OpenGL -framework AppKit
 endif
+
+IFLAGS	=	-I $(MLX) -I
 
 FILES	=	so_long.c \
 			parsing.c \
@@ -39,16 +41,16 @@ FILES	=	so_long.c \
 
 OBJ		=	$(FILES:%.c=$(OBJDIR)/%.o)
 
-all: $(OBJDIR) run_lib run_printf $(NAME)
+all: $(OBJDIR) run_MLX run_lib run_printf $(NAME)
 
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
 
 $(OBJDIR)/%.o: %.c Makefile so_long.h
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -L./$(MLX) $(LFLAGS) -o $(NAME) $(PLIB) $(LIB)
+	$(CC) $(CFLAGS) $(OBJ) $(LFLAGS) -o $(NAME) $(PLIB) $(LIB)
 
 run_lib:
 	@make -C libft
