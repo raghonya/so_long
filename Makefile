@@ -25,7 +25,7 @@ LFLAGS	=	-L $(MLX) -lmlx -lXext -lX11
 OBJDIR	=	obj
 
 ifeq ($(shell uname -s), Darwin)
-	MLX = minilibx
+	MLX = minilibx-MacOS
 	LFLAGS = -L $(MLX) -lm -lmlx -framework OpenGL -framework AppKit
 endif
 
