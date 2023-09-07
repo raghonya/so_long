@@ -85,8 +85,8 @@ char	**map_check(char *file, int *c_count)
 	len = ft_strlen(split[0]);
 	i = -1;
 	while (split[++i])
-		universal_func(i > 20 || len > 40, "Shat mec map\
-		\nMaximum 20 tox, 40 syun\n");
+		universal_func(i > 20 || len > 40, "Please, give the smaller map\
+		\nMax 20 rows, 40 columns\n");
 	*c_count = counts (ft_split(s, '\n'), ft_split(s, '\n'));
 	free(s);
 	return (split);
