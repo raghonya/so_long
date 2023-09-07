@@ -20,7 +20,7 @@ PLIB	=	printf/libftprintf.a
 
 MLX		=	minilibx-linux
 
-LFLAGS	=	-L $(MLX) -lmlx -lXext -lX11
+LFLAGS	=	-L $(MLX) -lmlx -lXext -lX11 -lm -lz
 
 OBJDIR	=	obj
 
